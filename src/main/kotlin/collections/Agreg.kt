@@ -1,7 +1,7 @@
 package collections
 
 fun main() {
-    var array = arrRand(20)
+    val array = arrRand(20)
     println(array.contentDeepToString())
     println(array.filter { it in 3..9 }.sum())
 

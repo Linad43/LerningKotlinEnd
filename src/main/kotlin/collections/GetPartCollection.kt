@@ -3,19 +3,22 @@ package collections
 fun main() {
     val numbers = (1..20).toList()
     println(numbers)
-    println(numbers.
-        drop(numbers.size-5).
-        filter { it%2==0 }.
-        count())
+    val numEx1 = numbers.
+    drop(4).
+    filter { it%2==0 }.
+    count()
+    println(numEx1)
     println(numbers.
         take(7).
         sum())
     val numString = mutableListOf("one", "two", "three")
+    //Пытался исправить на flatMap, но не знаю как правильно его использовать
+    //и numString.flatMap { it } выдает ошибку компиляции
     println(numString.
         map { it.toCharArray().
             map { it.toString() }}.
         flatten())
-    println(numString.maxBy { it.length })
+    println(numString.maxByOrNull { it.length })
 
     val listProduct = listOf(
         Product("first", (1..100).random()),
@@ -23,7 +26,7 @@ fun main() {
         Product("third", (1..100).random())
     )
     listProduct.forEach { println(it) }
-    println(listProduct.sumOf { it.count })
+    println(listProduct.map { it.count }.fold(0) {sum, element-> sum+element})
 }
 class Product(
     val name:String,
