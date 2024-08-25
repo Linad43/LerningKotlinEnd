@@ -2,19 +2,19 @@ package collections
 
 fun main(){
     val list = mutableListOf("one", "two", "three")
-    list.forEach { print(it.reversed()+" ") }
-    println()
+    val listRevers = list.map { it.reversed() }
+    println(listRevers)
 
-    val listNum: MutableList<Int> = arrayOf(
+    /*val listNum: MutableList<Int> = arrayOf(
         (1..10).random(),
         (1..10).random(),
         (1..10).random(),
         (1..10).random(),
         (1..10).random()
-    ).toMutableList()
-    val listTwo = listNum
+    ).toMutableList()*/
+    val listNum: Array<Int> = arrayOf(1,2,3,4,5)
+    val listTwo = listNum.filter { it<=3 }.map { it*it }
     println(listNum)
-    listTwo.replaceAll { it -> it*it }
     println(listTwo)
 
     val enColor = listOf("red", "blue", "white")
